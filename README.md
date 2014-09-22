@@ -21,7 +21,7 @@ Setup the plugin like this:
 			jcenter()
 		}
 		dependencies {
-			classpath 'com.moowork.gradle:gradle-gulp-plugin:0.6'
+			classpath 'com.moowork.gradle:gradle-gulp-plugin:0.1-SNAPSHOT'
 		}
 	}
 
