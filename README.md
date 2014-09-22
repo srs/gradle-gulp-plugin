@@ -1,14 +1,14 @@
-Gradle plugin for Grunt
+Gradle plugin for gulp
 =======================
 
-This is a very simple Gradle plugin for running Grunt tasks part of the build.
-It merely wraps calls to "grunt xyz" as "gradle grunt_xyz" tasks. Grunt is installed locally using npm.
+This is a very simple Gradle plugin for running gulp tasks part of the build.
+It merely wraps calls to "gulp xyz" as "gradle gulp_xyz" tasks. Gulp is installed locally using npm.
 
 Status
 ------
 
-* Build: [![Build Status](https://travis-ci.org/srs/gradle-grunt-plugin.png?branch=master)](https://travis-ci.org/srs/gradle-grunt-plugin)
-* Download: [![Download](https://api.bintray.com/packages/srs/maven/gradle-grunt-plugin/images/download.png)](https://bintray.com/srs/maven/gradle-grunt-plugin)
+* Build: [![Build Status](https://travis-ci.org/srs/gradle-gulp-plugin.png?branch=master)](https://travis-ci.org/srs/gradle-gulp-plugin)
+* Download: [![Download](https://api.bintray.com/packages/srs/maven/gradle-gulp-plugin/images/download.png)](https://bintray.com/srs/maven/gradle-gulp-plugin)
 
 Installing the plugin
 ---------------------
@@ -21,50 +21,50 @@ Setup the plugin like this:
 			jcenter()
 		}
 		dependencies {
-			classpath 'com.moowork.gradle:gradle-grunt-plugin:0.6'
+			classpath 'com.moowork.gradle:gradle-gulp-plugin:0.6'
 		}
 	}
 
 Include the plugin in your build.gradle file like this:
 
-    apply plugin: 'com.moowork.grunt'
+    apply plugin: 'com.moowork.gulp'
 
-The plugin will also apply gradle-node-plugin for Node and NPM related tasks. (see http://github/srs/grunt-node-plugin for details).
+The plugin will also apply gradle-node-plugin for Node and NPM related tasks. (See http://github/srs/gradle-node-plugin for details).
 
 Using the plugin
 ----------------
 
-You can run grunt tasks using this syntax:
+You can run gulp tasks using this syntax:
 
-    $ gradle grunt_build    # this runs grunt build
-    $ gradle grunt_compile  # this runs grunt compile
+    $ gradle gulp_build    # this runs gulp build
+    $ gradle gulp_compile  # this runs gulp compile
 
 ... and so on.
 
 These tasks do not appear explicitly in `gradle tasks`, they only appear as task rule.
-Your Gruntfile.js defines what grunt_* tasks exist (see `grunt --help`, or `gradle grunt_--help`).
+Your gulpfile.js defines what gulp_* tasks exist (see `gulp --tasks`, or `gradle gulp_--tasks`).
 
 Also (more importantly), you can depend on those tasks, e.g.
 
-    // runs "grunt build" as part of your gradle build
-    build.dependsOn grunt_build
+    // runs "gulp build" as part of your gradle build
+    build.dependsOn gulp_build
 
 This is the main advantage of this plugin, to allow build
-scripts (and grunt agnostics) to run grunt tasks via gradle.
+scripts (and gulp agnostics) to run gulp tasks via gradle.
 
-It is also possible to run a grunt task only if one of its input files have changed:
+It is also possible to run a gulp task only if one of its input files have changed:
 
     def srcDir = new File(projectDir, "src/main/web")
     def targetDir = new File(project.buildDir, "web")
-    grunt_dist.inputs.dir srcDir
-    grunt_dist.outputs.dir targetDir
+    gulp_dist.inputs.dir srcDir
+    gulp_dist.outputs.dir targetDir
 
 Extended Usage
 --------------
 
-If you need to supply grunt with options, you have to create GruntTasks:
+If you need to supply gulp with options, you have to create GulpTasks:
 
-    task gruntBuildWithOpts(type: GruntTask) {
+    task gulpBuildWithOpts(type: GulpTask) {
        args = ["build", "arg1", "arg2"]
     }
 
@@ -75,23 +75,23 @@ NPM helpers
 The plugin also provides two fixed helper tasks to run once per project, which
 however require npm (https://npmjs.org/) to be installed:
 
- - installGrunt: This installs grunt and grunt-cli to the project folder, using "npm install grunt grunt-cli"
+ - installGulp: This installs gulp to the project folder, using "npm install gulp"
  - npmInstall: This just runs "npm install" (possibly useful for scripting)
 
-Since grunt will only be installed in your project folder, it will not
+Since gulp will only be installed in your project folder, it will not
 interact with the rest of your system, and can easily be removed later by
 deleting the node_modules folders.
 
-So as an example, you can make sure a local version of grunt exists using this:
+So as an example, you can make sure a local version of gulp exists using this:
 
-    // makes sure on each build that grunt is installed
-    grunt_build.dependsOn 'installGrunt'
+    // makes sure on each build that gulp is installed
+    gulp_build.dependsOn 'installGulp'
 
-    // processes your package.json before running grunt build
-    grunt_build.dependsOn 'npmInstall'
+    // processes your package.json before running gulp build
+    gulp_build.dependsOn 'npmInstall'
 
-    // runs "grunt build" as part of your gradle build
-    build.dependsOn grunt_build
+    // runs "gulp build" as part of your gradle build
+    build.dependsOn gulp_build
 
 
 Automatically downloading Node

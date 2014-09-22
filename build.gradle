@@ -63,13 +63,13 @@ bintray {
 
     pkg {
         repo = 'maven'
-        name = 'gradle-grunt-plugin'
+        name = 'gradle-gulp-plugin'
         licenses = ['Apache-2.0']
-        desc = 'Gradle plugin for executing grunt builds. '
-        websiteUrl = 'https://github.com/srs/gradle-grunt-plugin'
-        issueTrackerUrl = 'https://github.com/srs/gradle-grunt-plugin/issues'
-        vcsUrl = 'https://github.com/srs/gradle-grunt-plugin.git'
-        labels = ['java', 'gradle', 'groovy', 'grunt', 'node']
+        desc = 'Gradle plugin for executing gulp builds. '
+        websiteUrl = 'https://github.com/srs/gradle-gulp-plugin'
+        issueTrackerUrl = 'https://github.com/srs/gradle-gulp-plugin/issues'
+        vcsUrl = 'https://github.com/srs/gradle-gulp-plugin.git'
+        labels = ['java', 'gradle', 'groovy', 'gulp', 'node']
         publicDownloadNumbers = true
     }
 }
