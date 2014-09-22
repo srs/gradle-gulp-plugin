@@ -122,4 +122,3 @@ Building the Plugin
 To build the plugin, just type the following command:
 
     ./gradlew clean build
-
