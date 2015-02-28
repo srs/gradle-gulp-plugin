@@ -18,7 +18,7 @@ and to use them you will need to add OJO to your buildscript configuration.
 Setup the plugin like this:
 
     plugins {
-        id "com.moowork.gulp" version "0.1"
+        id "com.moowork.gulp" version "0.9"
     }
 
 Or using the old (pre 2.1) way:
@@ -35,7 +35,7 @@ Or using the old (pre 2.1) way:
         }
 
         dependencies {
-            classpath 'com.moowork.gradle:gradle-gulp-plugin:0.1'
+            classpath 'com.moowork.gradle:gradle-gulp-plugin:0.9'
         }
     }
 
