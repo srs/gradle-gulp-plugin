@@ -1,36 +1,50 @@
-Gradle plugin for gulp
+Gradle plugin for Gulp
 =======================
+
+[![Build Status](http://goo.gl/3EpX6b)](http://goo.gl/EUkRd4)
+[![Download](http://goo.gl/UuoQ84)](http://goo.gl/6jlBXE)
+[![License](http://goo.gl/MMfZhl)](http://goo.gl/D6iAcM)
 
 This is a very simple Gradle plugin for running gulp tasks part of the build.
 It merely wraps calls to "gulp xyz" as "gradle gulp_xyz" tasks. Gulp is installed locally using npm.
 
-Status
-------
-
-* Build: [![Build Status](https://travis-ci.org/srs/gradle-gulp-plugin.png?branch=master)](https://travis-ci.org/srs/gradle-gulp-plugin)
-* Download: [![Download](https://api.bintray.com/packages/srs/maven/gradle-gulp-plugin/images/download.png)](https://bintray.com/srs/maven/gradle-gulp-plugin)
-* License: [![License](http://img.shields.io/:license-apache-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
-
 Installing the plugin
 ---------------------
 
-Releases of this plugin are hosted at BinTray (http://bintray.com) and is part of jcenter repository.
+Releases of this plugin are hosted at Bintray and is part of the jCenter repository. Development builds
+are published for every commit to the master branch. These SNAPSHOTs are hosted on the OJO repository
+and to use them you will need to add OJO to your buildscript configuration.
+
 Setup the plugin like this:
 
-	buildscript {
-		repositories {
-			jcenter()
-		}
-		dependencies {
-			classpath 'com.moowork.gradle:gradle-gulp-plugin:0.1-SNAPSHOT'
-		}
-	}
+    plugins {
+        id "com.moowork.gulp" version "0.1"
+    }
+
+Or using the old (pre 2.1) way:
+
+    buildscript {
+        repositories {
+            jcenter()
+
+            // If you want to use a SNAPSHOT build, add the OJO repository:
+            maven {
+                name 'JFrog OSS snapshot repo'
+                url  'https://oss.jfrog.org/oss-snapshot-local/'
+            }
+        }
+
+        dependencies {
+            classpath 'com.moowork.gradle:gradle-gulp-plugin:0.1'
+        }
+    }
 
 Include the plugin in your build.gradle file like this:
 
     apply plugin: 'com.moowork.gulp'
 
-The plugin will also apply gradle-node-plugin for Node and NPM related tasks. (See http://github/srs/gradle-node-plugin for details).
+The plugin will also apply gradle-node-plugin for Node and NPM related tasks.
+(See http://github/srs/gradle-node-plugin for details).
 
 Using the plugin
 ----------------
@@ -110,7 +124,6 @@ gradle-node-plugin does the magic (http://github.com/srs/gradle-node-plugin). Se
     }
 
 Node will be installed in the .gradle folder for current user under nodejs subdirectory.
-
 
 Getting latest npm on Ubuntu
 ----------------------------
