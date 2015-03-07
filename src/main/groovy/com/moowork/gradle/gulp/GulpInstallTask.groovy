@@ -14,6 +14,8 @@ class GulpInstallTask
 
         setArgs( ['install', 'gulp'] )
 
-        getOutputs().dir( 'node_modules/gulp' )
+        this.project.afterEvaluate {
+            getOutputs().dir( new File( this.project.node.nodeModulesDir, 'node_modules/gulp' ) )
+        }
     }
 }

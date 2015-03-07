@@ -16,13 +16,14 @@ class GulpTask
     @Override
     void exec()
     {
-        def localGulp = this.project.file( GULP_SCRIPT )
+        def localGulp = this.project.file( new File( this.project.node.nodeModulesDir, GULP_SCRIPT ) )
         if ( !localGulp.isFile() )
         {
             throw new GradleException(
                 "gulp not installed in node_modules, please first run 'gradle ${GulpPlugin.GULP_INSTALL_NAME}'" )
         }
 
+        setWorkingDir( this.project.gulp.workDir )
         setScript( localGulp )
         super.exec()
     }
