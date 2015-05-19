@@ -1,4 +1,4 @@
-package com.moowork.gradle
+package com.moowork.gradle.gulp
 
 import java.util.concurrent.atomic.AtomicBoolean
 import nebula.test.PluginProjectSpec
