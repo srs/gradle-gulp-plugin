@@ -116,6 +116,12 @@ You can configure the plugin using the "gulp" extension block, like this:
     gulp {
         // Set the directory where gulpfile.js should be found
         workDir = file("${project.projectDir}")
+
+        // Whether colors should output on the terminal
+        colors = true
+
+        // Whether output from Gulp should be buffered - useful when running tasks in parallel
+        bufferOutput = false
     }
 
 Automatically downloading Node
