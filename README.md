@@ -108,6 +108,15 @@ So as an example, you can make sure a local version of gulp exists using this:
     // runs "gulp build" as part of your gradle build
     build.dependsOn gulp_build
 
+Configuring the Plugin
+----------------------
+
+You can configure the plugin using the "gulp" extension block, like this:
+
+    gulp {
+        // Set the directory where gulpfile.js should be found
+        workDir = file("${project.projectDir}")
+    }
 
 Automatically downloading Node
 ------------------------------
