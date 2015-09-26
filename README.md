@@ -18,28 +18,22 @@ and to use them you will need to add OJO to your buildscript configuration.
 Setup the plugin like this:
 
     plugins {
-        id "com.moowork.gulp" version "0.10"
+      id "com.moowork.gulp" version "0.11"
     }
 
-Or using the old (pre 2.1) way:
+Or:
 
     buildscript {
-        repositories {
-            jcenter()
-
-            // If you want to use a SNAPSHOT build, add the OJO repository:
-            maven {
-                name 'JFrog OSS snapshot repo'
-                url  'https://oss.jfrog.org/oss-snapshot-local/'
-            }
+      repositories {
+        maven {
+          url "https://plugins.gradle.org/m2/"
         }
+      }
 
-        dependencies {
-            classpath 'com.moowork.gradle:gradle-gulp-plugin:0.10'
-        }
+      dependencies {
+        classpath 'com.moowork.gradle:gradle-gulp-plugin:0.11'
+      }
     }
-
-Include the plugin in your build.gradle file like this:
 
     apply plugin: 'com.moowork.gulp'
 
