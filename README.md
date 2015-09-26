@@ -5,6 +5,11 @@ Gradle plugin for Gulp
 [![Download](http://goo.gl/UuoQ84)](http://goo.gl/6jlBXE)
 [![License](http://goo.gl/MMfZhl)](http://goo.gl/D6iAcM)
 
+**NOTE:** Next version of this plugin will merge with the [Node](https://github.com/srs/gradle-node-plugin) and 
+[Grunt](https://github.com/srs/gradle-grunt-plugin) plugins.
+
+NOTE: Next version of this plugin will merge with the Grunt and Gulp plugins. 
+
 This is a very simple Gradle plugin for running gulp tasks part of the build.
 It merely wraps calls to "gulp xyz" as "gradle gulp_xyz" tasks. Gulp is installed locally using npm.
 
