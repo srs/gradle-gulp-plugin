@@ -6,8 +6,8 @@ Version 0.12 *(not released)*
 
 * ...
 
-Version 0.11 *(not released)*
------------------------------
+Version 0.11 *(2015-09-26)*
+---------------------------
 
 * Upgraded wrapper to use Gradle 2.7
 * Using gradle-node-plugin version 0.11
