@@ -4,6 +4,7 @@ sudo: false
 jdk:
 - oraclejdk7
 
+install: /bin/true
 script: ./gradlew ci
 
 cache:
