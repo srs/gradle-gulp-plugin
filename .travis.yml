@@ -1,11 +1,12 @@
 language: groovy
+sudo: false
 
 jdk:
 - oraclejdk7
 
-env:
-  global:
-  - secure: YApV+s5wZfykRYq/UCmlSMF5jU0BD5A8imqjp0WNn/cWIrMWCuGGVL6QDLwIeJJKcsSCiAjkoi1MnWUsrx+/NH0cxLG8QVFjLGXZ4ABOdBfDF4K108kXCwp/oP9C24lJmmUBqvaWn0ReDEC8WxPTIb4E0xD5C4Y6bqVMQ+4+21E=
-  - secure: LbGnxo1M2iOSiDi+d8/rpC1DCD6xRI4r32Uucq95vXzrcKp4KVRi8hJLpc30EmkyZwbOibyHOSQ0EzeeBruS2QaPbRqbSepRjE2RSH/bsGNLTFamgFFhQ9xXJwbmVn4Gl/+qOQbFtASVM24BLAlcan3L916vTC/buClu2qK1u2g=
-
 script: ./gradlew ci
+
+cache:
+  directories:
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
