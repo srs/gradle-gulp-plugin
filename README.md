@@ -1,12 +1,11 @@
 Gradle plugin for Gulp
 =======================
 
-[![Build Status](http://goo.gl/3EpX6b)](http://goo.gl/EUkRd4)
-[![Download](http://goo.gl/UuoQ84)](http://goo.gl/6jlBXE)
-[![License](http://goo.gl/MMfZhl)](http://goo.gl/D6iAcM)
-
-**NOTE:** Next version of this plugin will merge with the [Node](https://github.com/srs/gradle-node-plugin) and 
-[Grunt](https://github.com/srs/gradle-grunt-plugin) plugins.
+[![Build Status](https://travis-ci.org/srs/gradle-gulp-plugin.svg?branch=master)](https://travis-ci.org/srs/gradle-gulp-plugin)
+[![Windows Build status](https://ci.appveyor.com/api/projects/status/i03rkre941nwn1du?svg=true)](https://ci.appveyor.com/project/srs/gradle-gulp-plugin)
+[![Coverage Status](https://coveralls.io/repos/github/srs/gradle-gulp-plugin/badge.svg?branch=master)](https://coveralls.io/github/srs/gradle-gulp-plugin?branch=master)
+[![License](https://img.shields.io/github/license/srs/gradle-gulp-plugin.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
+[![Download](https://img.shields.io/bintray/v/srs/maven/gradle-gulp-plugin.svg)](https://bintray.com/srs/maven/gradle-gulp-plugin)
 
 This is a very simple Gradle plugin for running gulp tasks part of the build.
 It merely wraps calls to "gulp xyz" as "gradle gulp_xyz" tasks. Gulp is installed locally using npm.
