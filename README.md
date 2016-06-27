@@ -21,6 +21,7 @@ Setup the plugin like this:
 
     plugins {
       id "com.moowork.gulp" version "0.12"
+      id "com.moowork.node" version "0.12"
     }
 
 Or:
@@ -69,6 +70,40 @@ It is also possible to run a gulp task only if one of its input files have chang
     def targetDir = new File(project.buildDir, "web")
     gulp_dist.inputs.dir srcDir
     gulp_dist.outputs.dir targetDir
+    
+Example build.gradle file
+-------------------------
+
+To get you started here is what it might look like to integrate this plugin to a Java project.
+
+    plugins {
+    	id "com.moowork.gulp" version "0.12"
+    	id "com.moowork.node" version "0.12"
+    }
+    
+    apply plugin: "java"
+    
+    // run npm install
+    gulp_default.dependsOn 'npmInstall'
+    
+    // run gulp install
+    gulp_default.dependsOn 'installGulp'
+    
+    // processResources is a Java task. Run the gulpfile.js before this task using the 'default' task in the gulpfile.js
+    processResources.dependsOn gulp_default
+    
+    // if the /node_modules directory already exists somewhere other than at the base of where your build.gradle is
+    node {
+    	nodeModulesDir = file("WebContent")
+    }
+    
+    // if the /node_modules directory already exists somewhere other than at the base of where your build.gradle is
+    //  plugin looks for gulp in the node_modules directory
+    gulp {
+    	workDir = file("WebContent")
+    }
+
+
 
 Extended Usage
 --------------
