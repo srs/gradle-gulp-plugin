@@ -1,10 +1,12 @@
 package com.moowork.gradle.gulp
 
 import org.gradle.api.GradleException
+import spock.lang.IgnoreIf
 
 class GulpTaskTest
     extends AbstractTaskTest
 {
+  @IgnoreIf({env['NODE_PATH']})
     def "gulp not installed"()
     {
         given:

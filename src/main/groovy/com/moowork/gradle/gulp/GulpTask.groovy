@@ -6,7 +6,7 @@ import org.gradle.api.GradleException
 class GulpTask
     extends NodeTask
 {
-    private final static String GULP_SCRIPT = 'node_modules/gulp/bin/gulp.js';
+    private final static String GULP_SCRIPT = 'gulp/bin/gulp.js';
 
     public GulpTask()
     {
@@ -16,12 +16,7 @@ class GulpTask
     @Override
     void exec()
     {
-        def localGulp = this.project.file( new File( this.project.node.nodeModulesDir, GULP_SCRIPT ) )
-        if ( !localGulp.isFile() )
-        {
-            throw new GradleException(
-                "gulp not installed in node_modules, please first run 'gradle ${GulpPlugin.GULP_INSTALL_NAME}'" )
-        }
+        def localGulp = this.project.file( getSourceFile() )
 
         // If colors are disabled, add --no-color to args
         if ( !this.project.gulp.colors ) {
@@ -55,4 +50,27 @@ class GulpTask
             }
         }
     }
+
+    private File getSourceFile() {
+     //Local node_module instance
+     def gulpScript = new File( this.project.node.nodeModulesDir, 'node_modules/' + GULP_SCRIPT )
+     println "testing " + gulpScript
+     if (gulpScript.isFile()) {
+       return gulpScript
+     }
+
+     def env = System.getenv()
+     String globalNodePath = env['NODE_PATH']
+     def directories = globalNodePath?.tokenize(File.pathSeparatorChar)
+     for (String directory : directories) {
+       gulpScript = new File( directory, GULP_SCRIPT )
+       println "testing " + gulpScript
+       if (gulpScript.isFile()) {
+         return gulpScript
+       }
+     }
+
+     throw new GradleException(
+         "gulp not installed in node_modules, please first run 'gradle ${GulpPlugin.GULP_INSTALL_NAME}'" )
+   }
 }

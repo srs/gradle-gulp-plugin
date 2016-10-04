@@ -18,6 +18,19 @@ ext.compatibilityVersion = '1.6'
 sourceCompatibility = compatibilityVersion
 targetCompatibility = compatibilityVersion
 
+uploadArchives {
+ repositories {
+   mavenDeployer {
+     repository(url: 'http://imdev.nscorp.com/nexus/content/repositories/releases') {
+       authentication(userName: publishUser, password: publishPassword)
+     }
+     snapshotRepository(url: 'http://imdev.nscorp.com/nexus/content/repositories/snapshots') {
+       authentication(userName: publishUser, password: publishPassword)
+     }
+   }
+ }
+}
+
 repositories {
     jcenter()
 }
